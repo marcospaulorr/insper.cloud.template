@@ -19,6 +19,8 @@ Os pontos "tarefas" são os passos que devem ser seguidos para a realização do
 
 Instalando o MAAS e o UBUNTU:
 
+Primeiramente, foi realizado a instalação do Ubuntu Server 22.04 na máquina NUC Main. Durante o processo, foi definido o hostname como main, o usuário como cloud e a senha clouds. Foi atribuido o IP fixo 172.16.0.3 e o DNS foi configurado 172.20.129.131. Após isso, foi instalado o MaaS.
+
 <!-- termynal -->
 
 ``` bash
@@ -33,6 +35,10 @@ Dashboard do MAAS
 Conforme ilustrado acima, a tela inicial do MAAS apresenta um dashboard com informações sobre o estado atual dos servidores gerenciados. O dashboard é composto por diversos painéis, cada um exibindo informações sobre um aspecto específico do ambiente gerenciado. Os painéis podem ser configurados e personalizados de acordo com as necessidades do usuário.
 
 ### Tarefa 2
+
+Fazendo o acesso remotamente
+
+
 
 ## App
 
