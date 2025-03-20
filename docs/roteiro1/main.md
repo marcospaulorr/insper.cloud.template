@@ -1,6 +1,15 @@
 ## Objetivo
 
-Aqui vai o objetivo macro do roteiro. Por que estamos fazendo o que estamos fazendo?
+O Roteiro 1 tem como objetivo introduzir o gerenciamento de hardware Bare-Metal usando a plataforma MaaS.
+
+**Principais atividades:**
+- Instalação e configuração do MaaS para gerenciar servidores físicos
+- Preparação da rede do ambiente com roteador, switch e IPs fixos
+- Padronização e cabeamento dos dispositivos para garantir comunicação entre os componentes
+
+**Infraestrutura utilizada**
+- 6 NUCs com diferentes configurações de CPU, RAM e armazenamento
+- Switch e roteador
 
 ## Montagem do Roteiro
 
@@ -8,15 +17,15 @@ Os pontos "tarefas" são os passos que devem ser seguidos para a realização do
 
 ### Tarefa 1
 
-Instalando o MAAS:
+Instalando o MAAS e o UBUNTU:
 
 <!-- termynal -->
 
 ``` bash
 sudo snap install maas --channel=3.5/Stable
 ```
+![image](https://github.com/user-attachments/assets/a55b0de4-efd1-4675-85ce-833c42f7fbe1)
 
-![Tela do Dashboard do MAAS](./maas.png)
 /// caption
 Dashboard do MAAS
 ///
