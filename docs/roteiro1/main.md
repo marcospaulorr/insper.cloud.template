@@ -84,6 +84,55 @@ Os prints abaixo representam os mesmos de cima, mas com os demais servers.
 
 
 ### Tarefa 2
+![image](https://github.com/user-attachments/assets/237944a5-a39d-4d2b-b48c-1c058bdf7d42)
+![image](https://github.com/user-attachments/assets/f5b38a6a-c9e8-4d21-afa3-b751c65baf5e)
+![image](https://github.com/user-attachments/assets/d5382b0e-a155-43c9-a14f-a94a02377bdc)
+![image](https://github.com/user-attachments/assets/ae46d79d-d7f9-40e9-aeee-4e8ecd6fc85f)
+![image](https://github.com/user-attachments/assets/d7164549-0623-455d-b100-a536dfa951b4)
+![image](https://github.com/user-attachments/assets/7d3a1e79-ddbb-4091-8f2e-24815067bc92)
+![image](https://github.com/user-attachments/assets/da6f448e-6b43-4e61-b9ef-1d3822b48cee)
+![image](https://github.com/user-attachments/assets/6318ecd4-df88-484c-986e-c5978ef6df1c)
+
+
+### Tarefa 3
+![image](https://github.com/user-attachments/assets/3c9b921c-786c-45f9-9e24-60ef229359a2)
+![image](https://github.com/user-attachments/assets/e9afc32d-ec3a-43d9-954c-a65d27d85eb4)
+Antes tinhamos apenas o server2 rodando Django e o server1 rodando o banco de dados. Após a tarefa 3, tem-se o Django também no server3. O objetivo de ter feito isso foi de possuir alta disponibilidade, pois se um node cair o outro ainda está no ar, de forma que ainda é possível acessá-lo, e balancear a carga de acesso entre os servers.
+
+A implementação manual da aplicação do Django e do banco de dados foi realizada utilizando o script "install.sh" , responsável por instalar todas as dependências necessárias, incluindo o Django. Após a instalação, configuramos a conexão da aplicação com o banco de dados editando o arquivo settings.py do Django, onde ajustamos os parâmetros para que o sistema utilizasse corretamente o banco hospedado no server1.
+
+Após essa etapa, desconectamos o SSH do MAAS e reconectamos à máquina cloud MAIN, criando um túnel SSH (porta 8001) para acessar o serviço Django (porta 8080) rodando no server2. Um túnel SSH funciona como uma conexão segura, permitindo redirecionar dados de uma máquina remota para a máquina local. No caso dessa implementação, esse túnel possibilitou que a aplicação Django rodando no server2 fosse acessada localmente no navegador através do endereço: http://localhost:8001/admin/. Com essa configuração, foi possível testar a interface do Django, garantindo que a aplicação estivesse conectada ao banco de dados do server1
+
+Na tarefa 3 foi utilizado o Ansible para automatizar o deploy no server3, mas na tarefa 2 foi feita a instalação manual do Django para o server2 e foi conectado ao PostgreSQL no server1.
+
+O Ansible foi utilizado nessa tarefa 3 por 3 motivos principais:
+- Idempotente no sentido de conseguir repetir todos os procedimentos sem afetar os estados intermediários da instalação
+- Fácil de se lidar com um pool de máquinas simultaneamente
+- Consegue realizar o provisionamente automático de VMs e Containers (mas não metal)
+
+### Tarefa 4
+![image](https://github.com/user-attachments/assets/39f0433e-ce0a-4b9f-8fc9-24772a6f2972)
+![image](https://github.com/user-attachments/assets/eb047c46-dc31-46c1-b052-e3300120ba13)
+![image](https://github.com/user-attachments/assets/3cddd719-2c3d-408c-b02d-82bb28d9bbb1)
+
+
+
+RESPOSTA:
+No processo manual, foi necessário solicitar uma máquina ao MAAS, reservar instância, realizar o deploy e instalar a aplicação usando o script .sh. Esse procedimento exigiu diversas etapas manuais, o que fez a tarefa 2 ser muito pouco automatizada.
+
+Por outro lado, o Ansible faz esse processo ser automatizado, pois o Ansible funciona como um gerenciador de deploy. Basta utilizar um arquivo .yaml contendo os requisitos necessários e executá-lo no Ansible, que configura e instala tudo.
+
+### Tarefa 5
+![image](https://github.com/user-attachments/assets/ce2a4e66-923d-4694-91fe-1328799d2e61)
+![image](https://github.com/user-attachments/assets/415a8143-9efc-4cdb-89f7-c9462f5bbaee)
+![image](https://github.com/user-attachments/assets/8361133a-af64-4c1f-8fe3-117bc678a196)
+![image](https://github.com/user-attachments/assets/fab541ba-8655-457d-bde2-c67d2535022b)
+Na tarefa 5, o objetivo foi configurar um proxy reverso com load balancer utilizando o NGINX no server4. Isso permite que as requisições sejam distribuídas entre os server2 e o server3, que executam a aplicação Django. O balanceamento foi configurado no modelo Round Robin, garantindo que cada nova requisição seja redirecionada para um servidor diferente.
+
+### Conclusão
+O MAAS é uma ferramenta útil para o gerenciamento de servidores físicos em escala, como seria o caso de um datacenter real. Ele automatiza tarefas como descoberta, provisionamento, comissionamento e configuração de máquinas, além de fornecer controle centralizado sobre rede, IPs e armazenamento. Sem o MAAS, esse processo seria muito mais manual e demorado, fazendo com que cada servidor fosse instalado manualmente.
+
+Apesar do MAAS facilitar bastante a preparação da infraestrutura, ele não é uma ferramenta de deploy de aplicações. Por isso, para instalar e configurar a aplicação Django, foi usado um script manual (install.sh) e depois o Ansible para automatizar o mesmo processo.
 
 Exemplo de diagrama
 
