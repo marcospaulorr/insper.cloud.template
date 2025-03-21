@@ -57,16 +57,31 @@ A configuração do intervalo de IPs reservados no DHCP do MaaS foi feita utiliz
 ```
 Esse foi o intervalo pois a máscara de sub-rede é /20, o endereço de rede é 172.16.0.0 e o IP de broadcast é 172.16.15.255.
 
-Para permitir o acesso externo ao servidor Main, foi configurado um NAT no roteador (que permite que dispositivos dentro de uma rede privada se comuniquem com redes externas) para encaminhar conexões externas via porta 22 (porta da Main).
+Para permitir o acesso externo ao servidor Main, foi configurado um NAT no roteador (que permite que dispositivos dentro de uma rede privada se comuniquem com redes externas) para encaminhar conexões externas via porta 22 (porta da Main). No NAT foi escolhido o seguinte IP para acessar romotamente o nosso kit: 10.103.1.28.
 ``` 
 0.0.0.0/0
 ```
 
 ## App
 
-
-
 ### Tarefa 1
+Primeiramente, foi mudado o DNS Server para 172.20.129.131. Esse endereço foi utilizado pelo fato de ser um servidor DNS interno do Insper.
+![image](https://github.com/user-attachments/assets/c4552b0c-27f6-424b-9f9a-38615c21953b)
+O print acima mostra a verificação do status do PostgreSQL com o comando "sudo systemctl status postgresql" que mostra que o PostgreSQL está ativo. Em seguida, foi realizado o teste de conexão local ao PostgreSQL com o comando "psql -U cloud -h 172.16.15.0 -d tasks" (posteriormente o IP da server 1 foi mudada para 172.16.0.50), esse comando se conecta ao usuário cloud, depois se conecta ao IP do server 1 e depois se conecta ao banco de dados tasks. Para testar a conexão remota ao PostgreSQL via telnet com o comando "telnet 172.16.15.0 5432", o telnet testa se conseguimos abrir na porta 5432 do IP 172.16.15.0. A porta 5432 pelo fato de ser a porta padrão do PostgreSQL.
+![image](https://github.com/user-attachments/assets/c883a7d8-4d14-4474-974c-4132dfff80d7)
+No print acima foi executado o comando "nmap localhost" que serve para escanear as portas abertas no localhost (server1) que fornece as portas 22 (SSH) e a porta 5432 (PostgreSQL).
+![image](https://github.com/user-attachments/assets/beec6260-0767-40ee-8df1-c1869d58f412)
+O print acima mostra o comando "ping 127.0.0.1" que serve para testar a conectividade com o próprio servidor. (127.0.0.1 é o IP do localhost).
+Os prints abaixo representam os mesmos de cima, mas com os demais servers.
+![image](https://github.com/user-attachments/assets/ff3e185f-7383-4e02-b86f-067b9fcf2ce1)
+![image](https://github.com/user-attachments/assets/2c980c0e-7494-4dcb-8128-84b452f509b9)
+![image](https://github.com/user-attachments/assets/81fa09f6-3e0e-4ccb-bc8a-bc3d0381eca9)
+![image](https://github.com/user-attachments/assets/5657c28c-8b11-4a8c-9e31-ee7368014180)
+![image](https://github.com/user-attachments/assets/a73bc286-e60f-44eb-95fd-c7dd4a2dc0b7)
+![image](https://github.com/user-attachments/assets/b9b4fc25-9752-4f71-b675-74cc948525b6)
+![image](https://github.com/user-attachments/assets/565365ad-8fa8-4e50-9cb6-7fb4f52733c9)
+
+
 
 ### Tarefa 2
 
