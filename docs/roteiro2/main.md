@@ -48,7 +48,7 @@ juju bootstrap --bootstrap-series=jammy --constraints tags=juju maas-one maas-co
 ```
 ![image](https://github.com/user-attachments/assets/729c4a4e-d476-4115-b4d3-c66c4950eb4a)
 
-Foi verificado o estado das máquinas, aplicações e do próprio controlador da juju com o seguinte código:
+Foi verificado o status das máquinas, aplicações e do próprio controlador da juju com o seguinte código:
 ```bash
 juju status
 ```
@@ -56,7 +56,7 @@ Validando que o controlador já foi criado com sucesso e o ambiente está pronto
 ![image](https://github.com/user-attachments/assets/044d500b-9767-4eef-a1eb-78b2d462fd5b)
 
 # Tarefa 1
-Nessa tarefa será usado o Juju para orquestrar o deploy automatizado de duas aplicações: Grafana (visualização) e Prometheus (coleta de métricas).
+Nessa tarefa será usado o Juju para orquestrar o deploy automatizado de duas aplicações: Grafana (visualização) e Prometheus (coleta de dados).
 
 Primeiramente, foi criado a pasta para armazenar os arquivos ".charm" das aplicações, o que facilita o deploy com Juju de charms locais. Em seguida, foi baixado
 o charm do Grafana e o charm do Prometheus. Os charms tornam o deploy automatizado e padronizado. Para acompanhar o status do deploy, acompanhar a instalação em tempo real e verificar se as aplicações estão ficando "active" foi utilizado o seguinte código:
@@ -67,6 +67,7 @@ Depois foi realizada a conexão entre Grafana e o Prometheus, essa integração 
 ```bash
 juju relate grafana prometheus2
 ```
+
 
 
 
