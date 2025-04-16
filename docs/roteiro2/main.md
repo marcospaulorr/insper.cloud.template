@@ -69,8 +69,11 @@ juju relate grafana prometheus2
 ```
 ![image](https://github.com/user-attachments/assets/8a1a6eec-bafb-4e66-97c5-539215830081)
 ![image](https://github.com/user-attachments/assets/5669bef6-b51e-49c1-9c9e-cfd9486a1754)
+![image](https://github.com/user-attachments/assets/2d3165a9-3c3f-4433-8b61-3e894d10bd8b)
 ![image](https://github.com/user-attachments/assets/fac9e4a6-fff9-4edf-948f-574da8b23737)
 ![image](https://github.com/user-attachments/assets/d0625987-6dfa-446e-9525-de8ebbf8b636)
+![image](https://github.com/user-attachments/assets/27475faa-6b5c-47f8-b5ab-8fa54d301ed0)
+
 
 
 
