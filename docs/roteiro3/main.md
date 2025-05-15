@@ -115,13 +115,17 @@ juju deploy --to lxd:2 --channel yoga/stable openstack-dashboard
 
 ## Tarefa 1 - Verificação Inicial
 
-- [ ] Inserir print do comando `juju status` com todos os serviços ativos
+- [ ] Print do comando `juju status` com todos os serviços ativos
     ![image](https://github.com/user-attachments/assets/84eecc40-ae18-419a-9d45-314dd71c3733)
-- [ ] Inserir print do Dashboard do MAAS com as máquinas e IPs
+- [ ] Print do Dashboard do MAAS com as máquinas e IPs
     ![image](https://github.com/user-attachments/assets/0f71a47d-7850-4eca-9ed6-4d96fb1b79c9)
-- [ ] Inserir print da aba "Compute > Overview" no Horizon
-- [ ] Inserir print da aba "Compute > Instances" no Horizon
-- [ ] Inserir print da aba "Network > Topology" no Horizon
+- [ ] Print da aba "Compute > Overview" no Horizon
+   ![image](https://github.com/user-attachments/assets/20c82165-c65b-4347-b7a7-8183a3d101c6)
+- [ ] Print da aba "Compute > Instances" no Horizon
+      ![image](https://github.com/user-attachments/assets/81af6e7d-18c0-441e-b3d7-ca441bed9289)
+- [ ] Print da aba "Network > Topology" no Horizon
+      ![image](https://github.com/user-attachments/assets/f227ac7e-9436-40f5-9bfe-c2eae3cb2f2f)
+
 
 ## Tarefa 2 - Configuração da Nuvem e Primeira Instância
 
