@@ -163,6 +163,23 @@ juju add-unit --to <machine-id> ceph-osd
 
 - [ ] Inserir esquema da arquitetura de rede, do Insper até a instância na nuvem
 
+subgraph Insper
+  A[Usuário na rede Wi-Fi do Insper] -->|SSH via túnel (porta 22)| B[Main (cloud)]
+
+subgraph Nuvem Privada
+  B -->|Túnel SSH| C[Dashboard Horizon (porta 80/443)]
+  B -->|Túnel SSH| D[Instância Load Balancer - NGINX]
+  D -->|Proxy Reverso| E1[Instância API 1]
+  D -->|Proxy Reverso| E2[Instância API 2]
+  E1 --> F[Instância Banco de Dados]
+  E2 --> F
+
+subgraph Redes Virtuais OpenStack
+  D ---|Rede Interna (192.169.0.0/24)| E1
+  D --- E2
+  D --- F
+  D -->|Floating IP via Rede Externa (172.16.7.0/24)| G[Usuário Externo (Acesso via IP Público)]
+
 ## Tarefa 4 - Deploy de Aplicação em VMs
 
 Foram criadas 4 VMs com a seguinte topologia:
