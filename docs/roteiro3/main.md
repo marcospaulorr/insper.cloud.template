@@ -128,7 +128,10 @@ juju deploy --to lxd:2 --channel yoga/stable openstack-dashboard
 
 
 ## Tarefa 2 - Configuração da Nuvem e Primeira Instância
-
+![image](https://github.com/user-attachments/assets/6e249c86-37d4-4749-ae26-897740f7536f)
+![image](https://github.com/user-attachments/assets/7085127c-07ee-403a-bb2f-0921f51703ad)
+![image](https://github.com/user-attachments/assets/35acbeae-e321-4bb0-9358-6572a5ca5f43)
+![image](https://github.com/user-attachments/assets/b2e300e0-048d-4b88-86f1-e47a53d8af57)
 - Rede externa criada: faixa 172.16.7.0/24
 - Rede interna criada: faixa 192.169.0.0/24
 - Imagem Ubuntu Jammy importada
@@ -143,16 +146,6 @@ openstack flavor create m1.tiny --vcpus 1 --ram 1024 --disk 20
 ```bash
 openstack image create "ubuntu-jammy" --file ubuntu-jammy.img --disk-format qcow2 --container-format bare --public
 ```
-
-#### Criar rede e roteador:
-Executado via Horizon ou comandos OpenStack CLI conforme documentação.
-
-- [ ] Inserir print atualizado do Dashboard do MAAS
-- [ ] Inserir print atualizado do Horizon: "Compute > Overview"
-- [ ] Inserir print de "Compute > Instances" com a nova instância
-- [ ] Inserir print da "Network Topology" com roteador e redes conectadas
-- [ ] Responder: Enumere as diferenças entre os prints da Tarefa 1 e 2
-- [ ] Responder: Explique como cada recurso foi criado (imagem, flavor, redes, instância)
 
 ## Tarefa 3 - Escalando os Nós
 
