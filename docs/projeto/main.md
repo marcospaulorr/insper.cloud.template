@@ -1,6 +1,6 @@
 # 🚀 API RESTful - Projeto Computação em Nuvem 2025.1
 
-**Autor:** Marcos Paulo Ricarte  
+**Autor:** Marcos Paulo Ricarte e Roberta Barros Teixeira
 **Disciplina:** Computação em Nuvem - Insper  
 **Data:** Maio 2025
 
