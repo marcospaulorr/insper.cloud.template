@@ -17,6 +17,7 @@ Este projeto implementa uma **API RESTful completa** desenvolvida para a discipl
 - Login seguro com criptografia de senhas usando bcrypt
 - Autenticação via JWT (JSON Web Tokens) com expiração de 30 minutos
 - Proteção de rotas sensíveis com middleware de autenticação
+- **Botão "Authorize" 🔒** funcional no Swagger UI
 
 **📊 Consulta de Dados Externos:**
 - Endpoint protegido para consulta de dados da Bovespa
@@ -33,7 +34,7 @@ Este projeto implementa uma **API RESTful completa** desenvolvida para a discipl
 - Aplicação dockerizada usando FastAPI e Python 3.10
 - Banco PostgreSQL 17 em container separado
 - Docker Compose para orquestração de serviços
-- Imagem otimizada e publicada no Docker Hub
+- **Build local** otimizado para desenvolvimento
 
 ### 🛠️ Tecnologias Utilizadas
 
@@ -45,7 +46,7 @@ Este projeto implementa uma **API RESTful completa** desenvolvida para a discipl
 | **Containerização** | Docker & Docker Compose |
 | **ORM** | SQLAlchemy 2.0 |
 | **Validação** | Pydantic |
-| **Deploy** | AWS Lightsail |
+| **Deploy** | Build Local + AWS Lightsail |
 
 ### 📁 Estrutura do Projeto
 
@@ -56,7 +57,7 @@ cloud_projeto_1/
 │   ├── app.py              # Aplicação principal FastAPI
 │   └── main.py             # Entry point
 ├── Dockerfile              # Build da imagem Docker
-├── compose.yaml            # Docker Compose FINAL (apenas imagens)
+├── compose.yaml            # Docker Compose com BUILD LOCAL
 ├── requirements.txt        # Dependências Python
 ├── main.md                 # Esta documentação
 ├── .env.example           # Exemplo de variáveis
@@ -81,11 +82,11 @@ git clone https://github.com/marcospauloricarte/cloud_projeto_1.git
 cd cloud_projeto_1
 ```
 
-### 🐳 Passo 2: Executar com Docker Compose
+### 🐳 Passo 2: Executar com Docker Compose (Build Local)
 
 ```bash
-# Subir toda a aplicação (API + Banco)
-docker compose up -d
+# Buildar e subir toda a aplicação (API + Banco)
+docker compose up -d --build
 
 # Verificar se os containers estão rodando
 docker compose ps
@@ -98,6 +99,20 @@ cloud-api  app        Up         0.0.0.0:8000->8000/tcp
 cloud-db   db         Up         0.0.0.0:5432->5432/tcp
 ```
 
+### 🔄 Rebuilds Rápidos Durante Desenvolvimento
+
+```bash
+# Para mudanças no código - rebuild apenas a app
+docker compose up -d --build app
+
+# Para ver logs em tempo real
+docker compose logs -f app
+
+# Para rebuild completo quando necessário
+docker compose down
+docker compose up -d --build
+```
+
 ### 🌐 Passo 3: Acessar a Aplicação
 
 - **Swagger UI (Interface Interativa):** http://localhost:8000/docs
@@ -108,12 +123,12 @@ cloud-db   db         Up         0.0.0.0:5432->5432/tcp
 
 #### Via Swagger UI (Mais Fácil):
 
-1. Acesse: http://localhost:8000/docs
-2. Cadastre um usuário em `POST /registrar`
-3. Copie o JWT token da resposta
-4. Clique em "Authorize" 🔒 (topo da página)
-5. Cole apenas o token (sem "Bearer")
-6. Teste o endpoint protegido `GET /consultar`
+1. **Acesse:** http://localhost:8000/docs
+2. **Cadastre um usuário** em `POST /registrar`
+3. **Copie o JWT token** da resposta
+4. **Clique em "Authorize" 🔒** (topo da página)
+5. **Cole apenas o token** (sem "Bearer")
+6. **Teste o endpoint protegido** `GET /consultar`
 
 #### Via PowerShell/Terminal:
 
@@ -144,10 +159,11 @@ docker compose down -v
 - **Produção:** `https://fastapi-service.xyz.lightsail.aws`
 
 ### 🔐 Autenticação
-A API utiliza **JWT (JSON Web Tokens)**. Após login/registro, inclua o token:
-```
-Authorization: Bearer <seu_jwt_token>
-```
+A API utiliza **JWT (JSON Web Tokens)**. Após login/registro, use o **botão "Authorize" 🔒** no Swagger UI:
+
+1. **Clique no botão "Authorize" 🔒** no canto superior direito
+2. **Cole apenas o token JWT** (sem "Bearer ")
+3. **Clique "Authorize"** para autenticar todas as próximas requisições
 
 ### 📋 Endpoints Disponíveis
 
@@ -200,7 +216,7 @@ Authorization: Bearer <seu_jwt_token>
 **Response 401 - Credenciais inválidas:**
 ```json
 {
-    "detail": "Email ou senha incorretos"
+    "detail": "Credenciais inválidas"
 }
 ```
 
@@ -208,10 +224,7 @@ Authorization: Bearer <seu_jwt_token>
 
 **Descrição:** Retorna dados simulados da Bovespa
 
-**Headers:**
-```
-Authorization: Bearer <jwt_token>
-```
+**Autenticação:** ✅ **Requer uso do botão "Authorize" 🔒**
 
 **Response 200 - Sucesso:**
 ```json
@@ -238,7 +251,7 @@ Authorization: Bearer <jwt_token>
 **Response 403 - Token inválido:**
 ```json
 {
-    "detail": "Could not validate credentials"
+    "detail": "Token inválido ou expirado"
 }
 ```
 
@@ -259,13 +272,13 @@ Authorization: Bearer <jwt_token>
 
 ## 📸 4. Screenshots com os Endpoints Testados
 
-### 🐳 Screenshot 1: Docker Compose Up
-**[INSERIR SCREENSHOT AQUI: docker-compose-up.png]**
-*Comandos: `docker compose up -d` e `docker compose ps`*
+### 🐳 Screenshot 1: Docker Compose Build Local
+**[INSERIR SCREENSHOT AQUI: docker-compose-build-local.png]**
+*Comandos: `docker compose up -d --build` mostrando build local*
 
-### 🌐 Screenshot 2: Swagger UI Home
-**[INSERIR SCREENSHOT AQUI: swagger-ui-home.png]**
-*URL: http://localhost:8000/docs mostrando todos os endpoints*
+### 🌐 Screenshot 2: Swagger UI com Botão Authorize
+**[INSERIR SCREENSHOT AQUI: swagger-ui-authorize-button.png]**
+*URL: http://localhost:8000/docs mostrando o botão "Authorize" 🔒 no canto superior direito*
 
 ### 🏥 Screenshot 3: Health Check Sucesso
 **[INSERIR SCREENSHOT AQUI: health-check-sucesso.png]**
@@ -287,25 +300,25 @@ Authorization: Bearer <jwt_token>
 **[INSERIR SCREENSHOT AQUI: login-invalido.png]**
 *POST /login com credenciais erradas retornando erro 401*
 
-### 🔐 Screenshot 8: Botão Authorize
-**[INSERIR SCREENSHOT AQUI: authorize-button.png]**
-*Botão "Authorize" no Swagger UI e modal de inserção do token*
+### 🔐 Screenshot 8: Usando o Botão Authorize
+**[INSERIR SCREENSHOT AQUI: authorize-modal-funcionando.png]**
+*Modal do botão "Authorize" com token JWT inserido e funcionando*
 
 ### 📊 Screenshot 9: Consultar Dados Sucesso
-**[INSERIR SCREENSHOT AQUI: consultar-sucesso.png]**
-*GET /consultar com token válido retornando dados da Bovespa*
+**[INSERIR SCREENSHOT AQUI: consultar-sucesso-authorize.png]**
+*GET /consultar funcionando após autenticação via botão Authorize*
 
 ### 🚫 Screenshot 10: Consultar Dados - Erro 403
 **[INSERIR SCREENSHOT AQUI: consultar-erro-403.png]**
-*GET /consultar sem token retornando erro 403 Forbidden*
+*GET /consultar sem autenticação retornando erro 403*
 
-### 💻 Screenshot 11: Teste via PowerShell
-**[INSERIR SCREENSHOT AQUI: powershell-test.png]**
-*Comandos PowerShell de registro e consulta funcionando*
+### 💻 Screenshot 11: Build Local Logs
+**[INSERIR SCREENSHOT AQUI: build-local-logs.png]**
+*`docker compose logs app` mostrando build local funcionando*
 
-### 📊 Screenshot 12: Status dos Containers
-**[INSERIR SCREENSHOT AQUI: containers-status.png]**
-*`docker compose ps` e `docker compose logs` mostrando saúde dos containers*
+### 📊 Screenshot 12: Containers Status Build Local
+**[INSERIR SCREENSHOT AQUI: containers-build-local.png]**
+*`docker compose ps` mostrando app construída localmente*
 
 ---
 
@@ -316,10 +329,10 @@ Authorization: Bearer <jwt_token>
 **Exemplo:** https://www.youtube.com/watch?v=SEU_VIDEO_ID
 
 **Conteúdo do vídeo:**
-- ✅ Execução `docker compose up -d` (10s)
-- ✅ Acesso ao Swagger UI (10s)
-- ✅ Teste de registro de usuário (15s)
-- ✅ Autenticação e teste de endpoint protegido (15s)
+- ✅ Execução `docker compose up -d --build` (build local) (10s)
+- ✅ Acesso ao Swagger UI e teste do botão Authorize (15s)
+- ✅ Teste de registro de usuário (10s)
+- ✅ Autenticação via botão Authorize e teste de endpoint protegido (15s)
 - ✅ Verificação dos dados no banco PostgreSQL (10s)
 
 ---
@@ -334,12 +347,12 @@ Authorization: Bearer <jwt_token>
 |-------------|-------|
 | **Nome** | `marcospauloricarte/insper-cloud-api` |
 | **Tag** | `latest` |
-| **Tamanho** | ~150 MB |
+| **Status** | 🔄 **Versão de desenvolvimento usando build local** |
 | **Base Image** | `python:3.10` |
-| **Downloads** | 50+ pulls |
 
 ### 🚀 Como usar a imagem:
 
+**Para produção (imagem do Docker Hub):**
 ```bash
 # Pull da imagem
 docker pull marcospauloricarte/insper-cloud-api:latest
@@ -348,10 +361,20 @@ docker pull marcospauloricarte/insper-cloud-api:latest
 docker run -p 8000:8000 marcospauloricarte/insper-cloud-api:latest
 ```
 
-### 📋 Comandos de publicação utilizados:
+**Para desenvolvimento (build local - versão atual):**
+```bash
+# Build local
+docker compose up -d --build
+
+# Ou build manual
+docker build -t minha-api-local .
+docker run -p 8000:8000 minha-api-local
+```
+
+### 📋 Comandos para futura publicação no Docker Hub:
 
 ```bash
-# Build da imagem
+# Build da imagem atualizada
 docker build -t marcospauloricarte/insper-cloud-api:latest .
 
 # Login no Docker Hub
@@ -371,9 +394,9 @@ docker push marcospauloricarte/insper-cloud-api:latest
 
 **🔗 GitHub:** [https://github.com/marcospauloricarte/cloud_projeto_1/blob/main/compose.yaml](https://github.com/marcospauloricarte/cloud_projeto_1/blob/main/compose.yaml)
 
-### 📋 Arquivo compose.yaml FINAL
+### 📋 Arquivo compose.yaml FINAL (Build Local)
 
-**⚠️ IMPORTANTE:** Este arquivo utiliza **APENAS imagens do Docker Hub** (sem `build`):
+**⚠️ IMPORTANTE:** Este arquivo utiliza **BUILD LOCAL** ao invés de imagens do Docker Hub:
 
 ```yaml
 name: insper-cloud-projeto
@@ -400,7 +423,7 @@ services:
       - app-network
 
   app:
-    image: marcospauloricarte/insper-cloud-api:latest
+    build: .                    # ✅ BUILD LOCAL - constrói a imagem localmente
     container_name: cloud-api
     environment:
       DB_HOST: db
@@ -427,31 +450,47 @@ networks:
     driver: bridge
 ```
 
-### ✅ Características do Arquivo Final
+### ✅ Características do Arquivo Final (Build Local)
 
-- ✅ **Sem `build`** - apenas imagens do Docker Hub
+- ✅ **`build: .`** - constrói imagem localmente do Dockerfile
+- ✅ **Desenvolvimento rápido** - mudanças no código refletem rapidamente
 - ✅ **Variáveis de ambiente** com valores padrão
 - ✅ **Health checks** para ambos os serviços
 - ✅ **Restart policy** configurada
 - ✅ **Volumes** para persistência do banco
 - ✅ **Rede isolada** para comunicação interna
 
-
-### 🚀 Execução do compose.yaml final
+### 🚀 Execução do compose.yaml final (Build Local)
 
 ```bash
 # 1. Clone o repositório
 git clone https://github.com/marcospauloricarte/cloud_projeto_1.git
 cd cloud_projeto_1
 
-# 2. Execute o compose (puxa imagens do Docker Hub)
-docker compose up -d
+# 2. Execute o compose (build local da aplicação)
+docker compose up -d --build
 
 # 3. Verifique se está funcionando
 curl http://localhost:8000/health-check
 
 # 4. Acesse Swagger UI
 open http://localhost:8000/docs
+```
+
+### 🔄 Comandos de Desenvolvimento
+
+```bash
+# Rebuild apenas a aplicação (após mudanças no código)
+docker compose up -d --build app
+
+# Ver logs da aplicação
+docker compose logs -f app
+
+# Rebuild completo
+docker compose down && docker compose up -d --build
+
+# Limpar tudo e recomeçar
+docker compose down -v && docker compose up -d --build
 ```
 
 ---
@@ -462,9 +501,10 @@ open http://localhost:8000/docs
 - ✅ Tokens com expiração de 30 minutos
 - ✅ Chave secreta configurável via environment
 - ✅ Algoritmo HS256 para assinatura
+- ✅ **Botão "Authorize" funcional** no Swagger UI
 
 ### **Criptografia de Senhas**
-- ✅ Hash com bcrypt (força 12)
+- ✅ Hash com bcrypt (força padrão)
 - ✅ Senhas nunca armazenadas em texto plano
 - ✅ Validação segura no login
 
@@ -486,6 +526,14 @@ netstat -ano | findstr :8000
 docker stop $(docker ps -q)
 ```
 
+### **Erro: Build falhou**
+```bash
+# Limpar cache Docker
+docker system prune -f
+# Rebuild sem cache
+docker compose build --no-cache
+```
+
 ### **Erro: Conexão com banco**
 ```bash
 # Verificar logs do banco
@@ -495,15 +543,23 @@ docker compose restart db
 ```
 
 ### **Erro: Token inválido**
-- Verificar formato: `Bearer <token>`
+- Verificar se usou o botão "Authorize" 🔒
 - Token expira em 30 minutos - fazer novo login
-- Verificar se copiou token completo
+- Verificar se copiou token completo (sem "Bearer")
+
+### **Erro: Botão Authorize não aparece**
+```bash
+# Verificar se o build local funcionou
+docker compose logs app
+# Rebuildar completamente
+docker compose down && docker compose up -d --build
+```
 
 ### **Limpar ambiente completo**
 ```bash
 docker compose down -v
 docker system prune -f
-docker compose up -d
+docker compose up -d --build
 ```
 
 ---
@@ -516,28 +572,35 @@ Este projeto demonstra a implementação completa de uma **API RESTful moderna**
 
 - **🔐 Autenticação robusta** com JWT e bcrypt
 - **📊 Endpoints funcionais** para CRUD e consulta de dados
-- **🐳 Containerização completa** com Docker
-- **☁️ Deploy em nuvem** AWS Lightsail
+- **🐳 Containerização completa** com Docker (build local)
+- **☁️ Preparado para deploy** na AWS Lightsail
 - **📚 Documentação abrangente** com exemplos práticos
 - **🔒 Segurança** em todas as camadas
+- **✅ Botão "Authorize" funcional** no Swagger UI
 
 ### 🚀 Conceitos da Disciplina Aplicados
 
-- **Computação em Nuvem:** Deploy na AWS
-- **Containerização:** Docker e Docker Compose
+- **Computação em Nuvem:** Preparado para deploy na AWS
+- **Containerização:** Docker e Docker Compose com build local
 - **APIs RESTful:** FastAPI com padrões REST
-- **Banco de Dados:** PostgreSQL em nuvem
+- **Banco de Dados:** PostgreSQL containerizado
 - **Monitoramento:** Health checks e logs
-- **Segurança:** Autenticação e criptografia
+- **Segurança:** Autenticação JWT completa
 
-### 📈 Próximos Passos Possíveis
+### 🔧 Arquitetura de Desenvolvimento
 
-- Implementar cache com Redis
-- Adicionar rate limiting
-- Configurar CI/CD com GitHub Actions
-- Implementar logs estruturados
-- Adicionar métricas com Prometheus
-- Configurar SSL/TLS
+- **Build Local:** Desenvolvimento ágil com rebuild rápido
+- **Ambiente Isolado:** Containers com rede própria
+- **Persistência:** Dados preservados entre restarts
+- **Logs Estruturados:** Facilita debugging
+- **Health Checks:** Monitoramento automático de saúde
 
+### 📈 Próximos Passos
+
+- **Deploy AWS Lightsail:** Migrar para produção
+- **Push Docker Hub:** Atualizar imagem publicada
+- **CI/CD Pipeline:** Automatizar builds e deploys
+- **Monitoramento:** Métricas de produção
+- **Escalabilidade:** Load balancing e auto-scaling
 
 ---
