@@ -272,59 +272,28 @@ A API utiliza **JWT (JSON Web Tokens)**. Após login/registro, use o **botão "A
 
 ## 📸 4. Screenshots com os Endpoints Testados
 
-### 🐳 Screenshot 1: Docker Compose Build Local
-**[INSERIR SCREENSHOT AQUI: docker-compose-build-local.png]**
-*Comandos: `docker compose up -d --build` mostrando build local*
-
-### 🌐 Screenshot 2: Swagger UI com Botão Authorize
-**[INSERIR SCREENSHOT AQUI: swagger-ui-authorize-button.png]**
-*URL: http://localhost:8000/docs mostrando o botão "Authorize" 🔒 no canto superior direito*
-
-### 🏥 Screenshot 3: Health Check Sucesso
-**[INSERIR SCREENSHOT AQUI: health-check-sucesso.png]**
+### 🏥 Screenshot 1: Health Check Sucesso
+![image](https://github.com/user-attachments/assets/2c7a76b3-cfba-42f2-90f8-eb7eb54f3a20)
 *Teste do GET /health-check retornando status 200*
 
-### 👤 Screenshot 4: Registrar Usuário Sucesso
-**[INSERIR SCREENSHOT AQUI: registrar-usuario-sucesso.png]**
+### 👤 Screenshot 2: Registrar Usuário Sucesso
+![image](https://github.com/user-attachments/assets/f1652c87-6640-45e9-88b9-8ae614db55bd)
 *POST /registrar com dados válidos retornando JWT token*
 
-### ⚠️ Screenshot 5: Registrar Usuário - Email Duplicado
-**[INSERIR SCREENSHOT AQUI: registrar-email-duplicado.png]**
-*POST /registrar com email existente retornando erro 409*
-
-### 🔑 Screenshot 6: Login Sucesso
-**[INSERIR SCREENSHOT AQUI: login-sucesso.png]**
+### 🔑 Screenshot 3: Login Sucesso
+![image](https://github.com/user-attachments/assets/5666ed63-ba0b-4737-9513-5473da7edd3c)
 *POST /login com credenciais válidas retornando JWT token*
 
-### ❌ Screenshot 7: Login Inválido
-**[INSERIR SCREENSHOT AQUI: login-invalido.png]**
-*POST /login com credenciais erradas retornando erro 401*
-
-### 🔐 Screenshot 8: Usando o Botão Authorize
-**[INSERIR SCREENSHOT AQUI: authorize-modal-funcionando.png]**
-*Modal do botão "Authorize" com token JWT inserido e funcionando*
-
-### 📊 Screenshot 9: Consultar Dados Sucesso
-**[INSERIR SCREENSHOT AQUI: consultar-sucesso-authorize.png]**
+### 📊 Screenshot 4: Consultar Dados Sucesso
+![image](https://github.com/user-attachments/assets/0dbe208c-ad38-4982-b9eb-5daf99e60077)
 *GET /consultar funcionando após autenticação via botão Authorize*
 
-### 🚫 Screenshot 10: Consultar Dados - Erro 403
-**[INSERIR SCREENSHOT AQUI: consultar-erro-403.png]**
-*GET /consultar sem autenticação retornando erro 403*
-
-### 💻 Screenshot 11: Build Local Logs
-**[INSERIR SCREENSHOT AQUI: build-local-logs.png]**
-*`docker compose logs app` mostrando build local funcionando*
-
-### 📊 Screenshot 12: Containers Status Build Local
-**[INSERIR SCREENSHOT AQUI: containers-build-local.png]**
-*`docker compose ps` mostrando app construída localmente*
 
 ---
 
-## 🎥 5. Vídeo de Execução da Aplicação (1 minuto)
+## 🎥 5. Vídeo de Execução da Aplicação 
 
-**[INSERIR LINK DO YOUTUBE AQUI]**
+https://youtu.be/ob_k1WWowm8
 
 **Exemplo:** https://www.youtube.com/watch?v=SEU_VIDEO_ID
 
