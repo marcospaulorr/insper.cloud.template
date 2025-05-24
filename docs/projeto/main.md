@@ -196,37 +196,30 @@ Authorization: Bearer SEU_TOKEN_JWT
 ## 📸 4. Screenshots com os Endpoints Testados
 
 ### 🏥 Screenshot 1: Health Check Sucesso
-**[INSIRA AQUI UM SCREENSHOT DO ENDPOINT HEALTH-CHECK]**
+![image](https://github.com/user-attachments/assets/851a64f1-e43c-44dc-8c7e-7bbc35f542dd)
 *Teste do GET /health_check retornando status 200*
 
 ### 👤 Screenshot 2: Registrar Usuário Sucesso
-**[INSIRA AQUI UM SCREENSHOT DO ENDPOINT DE REGISTRO]**
+![image](https://github.com/user-attachments/assets/28a0c4cf-8834-4045-8494-e689a6cae1ce)
 *POST /registrar com dados válidos retornando JWT token*
 
 ### 🔑 Screenshot 3: Login Sucesso
-**[INSIRA AQUI UM SCREENSHOT DO ENDPOINT DE LOGIN]**
+![image](https://github.com/user-attachments/assets/987e3545-b5a3-4344-b9bc-9521af6a94dc)
 *POST /login com credenciais válidas retornando JWT token*
 
 ### 📊 Screenshot 4: Consultar Dados Sucesso
-**[INSIRA AQUI UM SCREENSHOT DO ENDPOINT CONSULTAR]**
+![image](https://github.com/user-attachments/assets/211b05a1-f907-4369-82ee-ccf745e237b5)
 *GET /consultar funcionando após autenticação*
 
 ### 🐳 Screenshot 5: Containers Rodando
-**[INSIRA AQUI UM SCREENSHOT DOS CONTAINERS RODANDO]**
+![image](https://github.com/user-attachments/assets/527223ff-5c29-4a34-8314-31c76623847b)
 *Docker containers em execução (docker ps)*
 
 ---
 
 ## 🎥 5. Vídeo de Execução da Aplicação 
 
-**[INSIRA AQUI O LINK DO SEU VÍDEO]**
-
-**Conteúdo do vídeo:**
-- Execução `docker compose up -d`
-- Acesso ao Swagger UI
-- Teste de registro de usuário
-- Teste de login
-- Teste de endpoint protegido (/consultar)
+https://youtu.be/rPPLQLgoXgw
 
 ---
 
