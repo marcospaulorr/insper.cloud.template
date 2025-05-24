@@ -344,3 +344,111 @@ networks:
 - **Limpar ambiente**: Use `docker compose down -v` para remover todos os containers e volumes
 
 ---
+
+## 🏗️ 10. AWS Lightsail - Etapa 2
+
+### ☁️ Screenshot da Infraestrutura Funcionando na AWS
+
+#### 🖥️ Container Service no Lightsail
+**[INSIRA AQUI UM SCREENSHOT DO CONTAINER SERVICE NO LIGHTSAIL]**
+*Container Service ativo no AWS Lightsail mostrando status e configurações*
+
+#### 🗄️ Banco de Dados no Lightsail
+**[INSIRA AQUI UM SCREENSHOT DO BANCO DE DADOS NO LIGHTSAIL]**
+*Banco de dados PostgreSQL gerenciado no AWS Lightsail*
+
+### 🌐 Screenshots dos Endpoints AWS Testados
+
+#### 🏥 Health Check no Lightsail
+**[INSIRA AQUI UM SCREENSHOT DO ENDPOINT HEALTH-CHECK NO LIGHTSAIL]**
+*Endpoint health_check funcionando no ambiente Lightsail*
+
+#### 👤 Registro no Lightsail
+**[INSIRA AQUI UM SCREENSHOT DO ENDPOINT DE REGISTRO NO LIGHTSAIL]**
+*Endpoint de registro funcionando no Lightsail*
+
+#### 🔑 Login no Lightsail
+**[INSIRA AQUI UM SCREENSHOT DO ENDPOINT DE LOGIN NO LIGHTSAIL]**
+*Endpoint de login funcionando no Lightsail*
+
+#### 📊 Consulta USD/BRL no Lightsail
+**[INSIRA AQUI UM SCREENSHOT DO ENDPOINT CONSULTAR NO LIGHTSAIL]**
+*Endpoint de consulta de cotação funcionando no Lightsail*
+
+### 💰 Custos da AWS
+
+#### 💵 Custos Atuais
+**[INSIRA AQUI UM SCREENSHOT DO PAINEL DE CUSTOS AWS]**
+*Custos da AWS no dia da submissão*
+
+#### 📈 Projeção de Custos para Diferentes Escalas
+
+| Configuração | Recursos | Custo Mensal Estimado (USD) |
+|--------------|----------|------------------------------|
+| **1 instância (atual)** | 1x Container Micro (1 vCPU, 512MB RAM)<br>1x PostgreSQL Micro (1 vCPU, 1GB RAM) | $7.00 (Container)<br>$15.00 (DB)<br>**Total: $22.00** |
+| **5 instâncias** | 5x Container Micro (1 vCPU, 512MB RAM)<br>1x PostgreSQL Micro (1 vCPU, 1GB RAM) | $35.00 (Containers)<br>$15.00 (DB)<br>**Total: $50.00** |
+| **10 instâncias** | 10x Container Micro (1 vCPU, 512MB RAM)<br>1x PostgreSQL Small (1 vCPU, 2GB RAM) | $70.00 (Containers)<br>$30.00 (DB)<br>**Total: $100.00** |
+
+### 🎥 Vídeo da Aplicação Funcionando no Lightsail
+
+**[INSIRA AQUI O LINK DO SEU VÍDEO MOSTRANDO O ACESSO E OPERAÇÕES NO LIGHTSAIL]**
+
+**Conteúdo do vídeo:**
+- Acesso ao AWS Lightsail Container Service
+- Demonstração da API funcionando na nuvem
+- Teste de cadastro e login de usuário
+- Armazenamento de dados no banco PostgreSQL gerenciado
+- Consulta da cotação USD/BRL através da API
+
+### 🏗️ Arquitetura da Solução na AWS
+
+```
+                      ┌─────────────────┐
+                      │                 │
+ Internet ───────────►│  Load Balancer  │
+                      │                 │
+                      └────────┬────────┘
+                               │
+                               ▼
+                      ┌─────────────────┐
+                      │  Container      │
+                      │  Service        │
+                      │  (FastAPI)      │
+                      └────────┬────────┘
+                               │
+                               ▼
+                      ┌─────────────────┐
+                      │  PostgreSQL     │
+                      │  Database       │
+                      │                 │
+                      └─────────────────┘
+```
+
+### 🛡️ Segurança na Nuvem
+
+- ✅ **Configuração segura de banco de dados**: Credenciais gerenciadas via variáveis de ambiente
+- ✅ **HTTPS**: Tráfego criptografado entre cliente e API
+- ✅ **Isolamento de rede**: Configuração adequada de VPC e regras de firewall
+- ✅ **Health checks**: Monitoramento contínuo para detectar problemas
+
+### 📊 Monitoramento e Gerenciamento
+
+- ✅ **Dashboard Lightsail**: Métricas de uso de CPU e memória
+- ✅ **Logs de aplicação**: Registros de acessos e erros
+- ✅ **Alertas**: Configurados para notificação em caso de alta utilização ou falhas
+
+---
+
+## 🏆 11. Conclusão do Projeto
+
+A implementação deste projeto demonstra a aplicação prática dos conceitos de computação em nuvem:
+
+- **Containerização eficiente** com Docker
+- **Arquitetura de microsserviços** separando aplicação e banco de dados
+- **Implantação em nuvem** utilizando AWS Lightsail
+- **Gerenciamento de custos** com projeções para diferentes escalas
+- **Monitoramento e observabilidade** através de health checks e logs
+
+A solução desenvolvida é escalável, segura e atende aos requisitos propostos na disciplina, aplicando boas práticas de desenvolvimento em todas as etapas, desde o ambiente local até o deploy em produção na AWS.
+
+---
