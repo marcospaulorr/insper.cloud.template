@@ -350,35 +350,35 @@ networks:
 ### ☁️ Screenshot da Infraestrutura Funcionando na AWS
 
 #### 🖥️ Container Service no Lightsail
-**[INSIRA AQUI UM SCREENSHOT DO CONTAINER SERVICE NO LIGHTSAIL]**
+![image](https://github.com/user-attachments/assets/ff2d86e2-89f5-42b8-a58f-dafb88a0f6bc)
 *Container Service ativo no AWS Lightsail mostrando status e configurações*
 
 #### 🗄️ Banco de Dados no Lightsail
-**[INSIRA AQUI UM SCREENSHOT DO BANCO DE DADOS NO LIGHTSAIL]**
+![image](https://github.com/user-attachments/assets/d204c68d-ebbe-479a-a4a7-6a043c06b6df)
 *Banco de dados PostgreSQL gerenciado no AWS Lightsail*
 
 ### 🌐 Screenshots dos Endpoints AWS Testados
 
 #### 🏥 Health Check no Lightsail
-**[INSIRA AQUI UM SCREENSHOT DO ENDPOINT HEALTH-CHECK NO LIGHTSAIL]**
+![image](https://github.com/user-attachments/assets/c63a22ba-15d6-41d4-a93d-041da67d6629)
 *Endpoint health_check funcionando no ambiente Lightsail*
 
 #### 👤 Registro no Lightsail
-**[INSIRA AQUI UM SCREENSHOT DO ENDPOINT DE REGISTRO NO LIGHTSAIL]**
+![image](https://github.com/user-attachments/assets/f5682262-c3fc-4564-ada7-ddf88f2c4c3c)
 *Endpoint de registro funcionando no Lightsail*
 
 #### 🔑 Login no Lightsail
-**[INSIRA AQUI UM SCREENSHOT DO ENDPOINT DE LOGIN NO LIGHTSAIL]**
+![image](https://github.com/user-attachments/assets/66cf434b-7ddb-4f8b-8e01-ed69b5d396d5)
 *Endpoint de login funcionando no Lightsail*
 
 #### 📊 Consulta USD/BRL no Lightsail
-**[INSIRA AQUI UM SCREENSHOT DO ENDPOINT CONSULTAR NO LIGHTSAIL]**
+![image](https://github.com/user-attachments/assets/7cf560b5-1153-4459-9ed7-23232e00a0b8)
 *Endpoint de consulta de cotação funcionando no Lightsail*
 
 ### 💰 Custos da AWS
 
 #### 💵 Custos Atuais
-**[INSIRA AQUI UM SCREENSHOT DO PAINEL DE CUSTOS AWS]**
+![image](https://github.com/user-attachments/assets/90034c61-9a5a-467f-80d0-ff2fe546c7c9)
 *Custos da AWS no dia da submissão*
 
 #### 📈 Projeção de Custos para Diferentes Escalas
@@ -391,7 +391,7 @@ networks:
 
 ### 🎥 Vídeo da Aplicação Funcionando no Lightsail
 
-**[INSIRA AQUI O LINK DO SEU VÍDEO MOSTRANDO O ACESSO E OPERAÇÕES NO LIGHTSAIL]**
+https://youtu.be/qpfAiKzi50o
 
 **Conteúdo do vídeo:**
 - Acesso ao AWS Lightsail Container Service
