@@ -191,11 +191,10 @@ Endereçamento:
 - Rede privada: 192.169.0.0/24
 - IPs flutuantes atribuídos a cada instância
 
-- [ ] Inserir print da arquitetura de rede no Horizon
-- [ ] Inserir print da lista de VMs com nome e IPs
-- [ ] Inserir print do dashboard da aplicação acessada via NGINX
-- [ ] Inserir 4 prints de qual servidor físico cada instância foi alocada
-- [ ] Escrever os passos do deploy da aplicação (infra, rede, configuração, testes)
+![image](https://github.com/user-attachments/assets/2e190fac-d944-4e3d-8f0d-05a51ef98642)
+![image](https://github.com/user-attachments/assets/b8579103-0e3a-49c7-9a6f-866cb19f7bbd)
+![image](https://github.com/user-attachments/assets/b9681201-b4dd-44ae-90ec-8954027227bb)
+![image](https://github.com/user-attachments/assets/e40795a7-04ce-4314-b22b-f404e4f4645b)
 
 ## Conclusão
 
