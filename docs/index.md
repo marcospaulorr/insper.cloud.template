@@ -54,8 +54,8 @@ Embora o custo inicial seja maior, o TCO (Total Cost of Ownership) se justifica 
 
 3. **Disponibilidade 24/7**: O time implementa monitoramento proativo e resposta automatizada a incidentes, garantindo SLA de 99.9%.
 
-4. **Economia**: Apesar do investimento inicial em salários, economizamos R$ 2M/ano em:
-   - Menos downtime (cada hora parada custa R$ 50k)
+4. **Economia**: Apesar do investimento inicial em salários, economizamos em:
+   - Menos downtime 
    - Menos retrabalho
    - Melhor uso de recursos
 
@@ -112,16 +112,7 @@ Estratégia 3-2-1:
 - 2 mídias diferentes (disco + tape/cloud)
 - 1 cópia offsite (outro datacenter)
 
-Frequência:
-- Incremental: A cada 4 horas
-- Full: Diário às 2h AM
-- Snapshot de VMs: A cada 6 horas
 
-Retenção:
-- Incrementais: 7 dias
-- Diários: 30 dias
-- Semanais: 90 dias
-- Mensais: 1 ano
 
 Testes:
 - Restore parcial: Semanal
@@ -159,8 +150,5 @@ Arquitetura HA Multi-Camada:
    - Switches redundantes
    - Múltiplos paths (LACP)
 
-Métricas de Sucesso:
-- RTO: 4 horas
-- RPO: 6 horas  
-- Disponibilidade: 99.9% (8.76h downtime/ano)
+
 ```
