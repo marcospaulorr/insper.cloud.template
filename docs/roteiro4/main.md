@@ -152,3 +152,16 @@ Arquitetura HA Multi-Camada:
 
 
 ```
+![image](https://github.com/user-attachments/assets/2fa47a38-017c-4853-a5dd-62c9b946779d)
+![image](https://github.com/user-attachments/assets/b943bcd9-774c-4ea1-af1e-5a49b97d93fe)
+![image](https://github.com/user-attachments/assets/8f6c4290-0b97-4356-80ef-34ee1759e4ff)
+![image](https://github.com/user-attachments/assets/96159f20-eb77-43ad-bc7a-0a23626648aa)
+![image](https://github.com/user-attachments/assets/ed1b00ab-f86f-45a9-8374-2c6cdf2e1d66)
+![image](https://github.com/user-attachments/assets/331617f2-d249-4986-b265-1473a65f8798)
+
+
+
+
+
+
+
