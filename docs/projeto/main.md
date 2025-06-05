@@ -253,7 +253,7 @@ docker run -p 8000:8000 marcospauloricarte/insper-cloud-api:latest
 
 **📁 Localização:** `/compose.yaml` (raiz do projeto)
 
-**🔗 GitHub:** [https://github.com/marcospauloricarte/cloud_projeto_1/blob/main/compose.yaml](https://github.com/marcospauloricarte/cloud_projeto_1/blob/main/compose.yaml)
+**🔗 GitHub:** [https://github.com/marcospaulorr/cloud_projeto_1](https://github.com/marcospaulorr/cloud_projeto_1)
 
 ### 📋 Arquivo compose.yaml FINAL
 
